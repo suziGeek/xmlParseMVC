@@ -3,14 +3,17 @@
 @model CampsiteDetail
 
 
+@{var campId = "50032"; }
+                    Check out this campsite!
+<a class="navbar-brand" asp-area="" asp-route-campId=@campId asp-controller="CampsiteDetail" asp-action="Index">Campsite Detail</a>
 
 
-            
-                    Check out this campsite! 
-    <a class="navbar-brand" asp-area="" asp-controller="CampsiteDetail" asp-action="Index">Campsite Detail</a>
-               
-                    
-               
-        }
-    }
+@using (Html.BeginForm("GetCamperDetail", "CampsiteDetail", "Post"))
+{
+
+    <input type="hidden" asp-for="campId" value="@campId" />
+
+    <input type="submit" class="btn btn-danger" value="View Details" />
 }
+
+

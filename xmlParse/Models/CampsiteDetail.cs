@@ -14,6 +14,7 @@ namespace xmlParse.Models
         public CampsiteDetail() {
                 
         }
+        public string campId { get; set; }
         public string alert { get; set; }
         public string description { get; set; }
         public string drivingDirections { get; set; }

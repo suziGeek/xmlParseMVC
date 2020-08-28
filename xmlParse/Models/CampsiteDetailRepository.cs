@@ -39,13 +39,10 @@ namespace xmlParse.Models
 
 
 
-        public CampsiteDetail GetCamperDetail()
+        public CampsiteDetail GetCamperDetail(string campId)
         {
-            var campUrl = "http://api.amp.active.com/camping/campground/details?contractCode=CO&parkId=50032&api_key=hcgj5x79d9wren68k2pj5nv9";
+            string campUrl = $"http://api.amp.active.com/camping/campground/details?contractCode=CO&parkId={campId}&api_key=hcgj5x79d9wren68k2pj5nv9";
             var campResponse = _client.GetStringAsync(campUrl).Result;
-            //var campDetails = XElement.Parse(campResponse);
-            //List<XElement> contactNodes = campDetails.Elements("result").ToList();
-            //var photo = contactNodes;
 
             XElement root = XElement.Parse(campResponse);
             XElement newTree = new XElement("Root",
@@ -57,8 +54,6 @@ namespace xmlParse.Models
             var stringXML = newTree.ToString();
 
             return  LoadFromXMLString(stringXML);
-            //return newTree;
-             
 
         }
 

@@ -13,20 +13,18 @@ namespace xmlParse.Controllers
 {
     public class CampsiteDetailController : Controller
     {
-
-        public ActionResult Index()
+        
+        public ActionResult Index(string campId)
         {
-
+            
             var client = new HttpClient();
             var quote = new CampsiteDetailRepository(client);
 
-
-            //Console.WriteLine($"Kanye: {quote.Kanye()}");
-
-            //Console.WriteLine($"Ron Swanson: {quote.RonSwanson()}");
-            var campsites = quote.GetCamperDetail();
+            CampsiteDetail campsites = quote.GetCamperDetail(campId);
 
             return View(campsites);
         }
+
+        
     }
 }
