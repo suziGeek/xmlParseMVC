@@ -8,9 +8,5 @@ namespace xmlParse.Models
     interface ICampsiteDetailRepository
     {
         CampsiteDetail GetCamperDetail(string campId);
-        
-
-
-
     }
 }

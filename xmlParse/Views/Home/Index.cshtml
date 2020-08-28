@@ -8,12 +8,5 @@
 <a class="navbar-brand" asp-area="" asp-route-campId=@campId asp-controller="CampsiteDetail" asp-action="Index">Campsite Detail</a>
 
 
-@using (Html.BeginForm("GetCamperDetail", "CampsiteDetail", "Post"))
-{
-
-    <input type="hidden" asp-for="campId" value="@campId" />
-
-    <input type="submit" class="btn btn-danger" value="View Details" />
-}
 
 
