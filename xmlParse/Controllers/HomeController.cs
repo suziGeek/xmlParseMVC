@@ -20,6 +20,7 @@ namespace xmlParse.Controllers
 
         public IActionResult Index()
         {
+            
             return View();
         }
 

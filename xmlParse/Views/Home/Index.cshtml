@@ -1,12 +1,43 @@
 ﻿@using System
 @using System.Xml
-@model CampsiteDetail
+
+@using xmlParse.Models
+@model Campgrounds
+
 
 
 @{var campId = "50032"; }
                     Check out this campsite!
 <a class="navbar-brand" asp-area="" asp-route-campId=@campId asp-controller="CampsiteDetail" asp-action="Index">Campsite Detail</a>
 
+
+
+@*@Html.DropDownListFor(m => m.selectState,
+    new SelectList(Enum.GetValues(typeof(Campgrounds.States))),
+    "Select State",
+    new { @class = "form-control" })*@
+
+@*@{var state = Convert.ToString(DropDownListFor.selectState.value)};*@
+
+@*<select asp-for="selectState" asp-items="@Model.States" class="form-control"></select>*@
+
+@using (Html.BeginForm("Index", "Campgrounds", FormMethod.Post))
+{
+    <b>Select State: </b>
+
+    @Html.DropDownList("SelectState", new SelectList(Enum.GetValues(typeof(Campgrounds.States))), "--Select State--")
+    <input type="submit" value="submit" />
+}
+
+@*@using (Html.BeginForm("GetCampgrounds", "Campgrounds", "Post"))
+{
+    <input type="hidden" asp-for="selectState" value="@Model.selectState" />
+
+    <input type="submit" class="btn btn-outline-success" value="Find Campgrounds" />
+}*@
+
+
+@*<a class="navbar-brand" asp-area="" asp-route-selectState=@Model.selectState asp-controller="Campgrounds" asp-action="Index">Choose Campground</a>*@
 
 
 
